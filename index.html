@@ -33,16 +33,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* The gap size in space-around is equal to (container width - total children width) / (number of children + 1)
-                In our case,  container width is 100%, children width is 45% * 2 = 90%.  Number of children is 2.
-                So gap = (100% - 90%) / (2 + 1) = 10% / 3  = 3.33%
-                We need to convert this percentage to vh.  100% width = 100vw,  100% height = 100vh
-                Since we are using space-around on the row, we should use vw.
-                Gap in vw = 100vw * 10 / 3 / 100 = 10vw / 3
-                Gap in vh = 0
-                Total horizontal gap = 2 * 10vw / 3
-                So, we subtract  (2 * 10vw / 3) from 30vh.
-            */
             font-size: calc(30vh - (2 * 10vw / 3) - 1em);
             margin: 0;
             border: 1px solid #ccc;
@@ -52,6 +42,7 @@
             -webkit-user-select: all;
             -moz-user-select: all;
             cursor: text;
+            -webkit-tap-highlight-color: transparent; /*hide the blue highlight*/
         }
         .char:focus {
              outline: none;
@@ -79,10 +70,6 @@
             .char {
                 width: 45%;
                 height: 100%;
-                /* Gap is calculated the same way as above, but we apply it to the print version.
-                    Gap in vw = 100vw * 10 / 3 / 100 = 10vw / 3
-                    Gap in vh = 0
-                */
                 font-size: calc(30vh - (2 * 10vw / 3) - 1em);
                 margin: 0px 0 10px 0;
                 border: 1px solid #ccc;

@@ -12,6 +12,7 @@
         }
         .container {
             display: flex;
+            flex-direction: column; /* Changed to column */
             flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
@@ -19,6 +20,14 @@
             padding: 20px;
             box-sizing: border-box;
         }
+        .row {  /* New class for the nested row */
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-around;
+            margin-bottom: 10px; /* Add space between rows */
+        }
+
         .char {
             width: 45%;
             height: 30%;
@@ -26,7 +35,7 @@
             align-items: center;
             justify-content: center;
             font-size: 10em;
-            margin: 0 0 10px 0;
+            margin: 0; /* Removed margin from .char */
             border: 1px solid #ccc;
             box-sizing: border-box;
             word-wrap: break-word;
@@ -43,6 +52,7 @@
         @media print {
             .container {
                 display: flex;
+                flex-direction: column; /* Changed to column */
                 flex-wrap: wrap;
                 justify-content: space-around;
                 align-items: flex-start;
@@ -50,12 +60,19 @@
                 margin: 0;
                 padding: 0;
             }
+             .row {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-around;
+                margin-bottom: 0; /* Removed margin in print */
+            }
             .char {
                 width: 45%;
                 height: auto;
-                font-size: 10em;
+                font-size: 15em;
                 margin: 0px 0 10px 0;
-                border: 1px solid #ccc; /* Added border here */
+                border: 1px solid #ccc;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -69,12 +86,18 @@
 </head>
 <body>
     <div class="container">
-        <div class="char" contenteditable="true">A</div>
-        <div class="char" contenteditable="true">B</div>
-        <div class="char" contenteditable="true">C</div>
-        <div class="char" contenteditable="true">D</div>
-        <div class="char" contenteditable="true">E</div>
-        <div class="char" contenteditable="true">F</div>
+        <div class="row">
+            <div class="char" contenteditable="true">A</div>
+            <div class="char" contenteditable="true">B</div>
+        </div>
+        <div class="row">
+            <div class="char" contenteditable="true">C</div>
+            <div class="char" contenteditable="true">D</div>
+        </div>
+        <div class="row">
+            <div class="char" contenteditable="true">E</div>
+            <div class="char" contenteditable="true">F</div>
+        </div>
     </div>
 </body>
 </html>
